@@ -4,3 +4,31 @@
 // styles are for the entire app and not just one component. Additionally, this 
 // file can hold Sass mixins, functions, and placeholder classes to be imported 
 // and used throughout the application.
+@import "~src/theme/colors.scss";
+
+
+.title-text{
+    margin-top: 10px;
+    color: $azul;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.painel-azul{
+    background-color: $azul;
+    color: $background;
+}
+
+.painel-cinza{
+    background-color: $painel;
+}
+
+.logout-icon{
+    height: 20px;
+    width: 20px;
+    opacity: 0.5;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}

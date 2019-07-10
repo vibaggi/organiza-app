@@ -1,0 +1,16 @@
+@import"~src/theme/colors.scss";
+.background-image{
+    position: absolute;
+    left: -35%;
+    top: 20%;
+}
+
+.pre-home-title{
+    font-size: 30px;
+    color: $azul;
+}
+
+.pre-home-description{
+    font-size: 18px;
+    color: $texto;
+}

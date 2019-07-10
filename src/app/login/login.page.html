@@ -1,9 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen class="ion-padding ion-justify-content-end">
 
-<ion-content>
+  <ion-row class="ion-justify-content-center ion-margin-vertical">
+    <img src="assets/logo.svg" alt="" />
+  </ion-row>
+  <ion-row class="ion-justify-content-center ion-margin-vertical">
+    <div class="logo-name">ORGANIZA</div>
+  </ion-row>
+  
+ 
+  <ion-item class="ion-margin-vertical">
+    <ion-input placeholder="USUARIO" [(ngModel)]="usuario"></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin-vertical">
+    <ion-input placeholder="SENHA" type="password" [(ngModel)]="senha"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="login()">ENTRAR</ion-button>
+  <ion-row class="ion-justify-content-center">
+    <div class="title-text" [routerLink]="(['/cadastro'])">novo cadastro</div>
+  </ion-row>
 
 </ion-content>

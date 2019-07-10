@@ -1,14 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen class="ion-padding ion-justify-content-end">
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+    <ion-row class="ion-justify-content-left ion-margin-vertical perfil-info">
+        <img src="assets/perfil.jpg" alt=""/>
+        <div>
+            <div>{{usuario.nome}}</div>
+            <div>{{usuario.republica}}</div>
+        </div>
+    </ion-row>
+
+    <ion-row>
+        <div class="rank-container">
+            <div class="painel-azul">
+                <div>PONTUAÇÃO</div>
+                <div id="saldo">{{usuario.saldo}}</div>
+            </div>
+            <div class="painel-cinza">
+                <div id="posicao-container"><div id="posicao">{{colocacao}}</div> <div>COLOCADO</div></div>
+                <div class="click-text"> VER RANK COMPLETO </div>
+            </div>
+        </div>
+    </ion-row>
+
+    <ion-row class="row">
+        <div class="extrato-container">
+            <div class="painel-cinza"></div>
+            <div class="painel-azul"></div>
+        </div>
+    </ion-row>
+
 </ion-content>

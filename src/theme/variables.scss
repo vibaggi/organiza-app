@@ -1,8 +1,13 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+@import "colors.scss";
+
 
 /** Ionic CSS Variables **/
 :root {
+
+  --ion-background-color: #F2F5F2;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -74,4 +79,12 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+
+ion-button {
+  --background: #F3BA54;
+}
+
+ion-input{
+  text-align: center;
 }
