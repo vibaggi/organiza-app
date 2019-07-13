@@ -28,6 +28,7 @@ export class TokenInterceptor implements HttpInterceptor {
             return next.handle(dupReq).pipe(
                 //Tratando token expirado.
                     catchError(error => {
+                        console.log(error);
                         console.log(error.status)
                         if(error.status == 401) this.router.navigate(['/login'])
                         return of(error)

@@ -8,7 +8,7 @@
         </div>
     </ion-row>
 
-    <ion-row>
+    <ion-row class="ion-margin-vertical">
         <div class="rank-container">
             <div class="painel-azul">
                 <div>PONTUAÇÃO</div>
@@ -16,15 +16,34 @@
             </div>
             <div class="painel-cinza">
                 <div id="posicao-container"><div id="posicao">{{colocacao}}</div> <div>COLOCADO</div></div>
-                <div class="click-text"> VER RANK COMPLETO </div>
+                <div class="click-text" (click)="router.navigate(['/rank'])"> VER RANK COMPLETO </div>
             </div>
         </div>
     </ion-row>
 
-    <ion-row class="row">
+    <ion-row class="ion-margin-vertical">
         <div class="extrato-container">
-            <div class="painel-cinza"></div>
-            <div class="painel-azul"></div>
+            <div class="painel-cinza">
+                <div class="lista lista-tarefas">
+                    <div class="lista-title">ÚLTIMAS TAREFAS</div>
+                    <div class="lista-item" *ngFor="let tarefa of tarefas">
+                        <div class="lista-item-nome">{{tarefa.nome}}</div>
+                        <div class="lista-item-pontos">{{tarefa.pontos}} pts</div>
+                    </div>
+                </div>
+                <div class="lista lista-ocorrencias">
+                    <div class="lista-title">ÚLTIMAS OCORRENCIAS</div>
+                    <div class="lista-item" *ngFor="let ocorrencia of ocorrencias">
+                        <div class="lista-item-nome">{{ocorrencia.nome}}</div>
+                        <div class="lista-item-pontos">{{ocorrencia.pontos}} pts</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="painel-azul">
+                <img src="assets/extrato-icon-white.svg" alt="">
+                <div>VER EXTRATO COMPLETO</div>
+            </div>
         </div>
     </ion-row>
 

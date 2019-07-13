@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PontosService } from '../services/pontos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +9,42 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private _pontos: PontosService, private router: Router) {}
+
+  ngOnInit(){
+    this._pontos.consultaSaldo().subscribe((resp:any)=>{
+      console.log(resp);
+      this.usuario.saldo = resp.saldo
+    })
+  }
 
   colocacao = 3
   usuario = {
     nome: "Bromo da Silva",
     republica: "Liga da Justiça",
-    saldo: 1000
+    saldo: ""
   }
+
+  tarefas = [
+    {
+      nome: "Louça",
+      pontos: 50
+    },
+    {
+      nome: "Tirar Lixo",
+      pontos: 20
+    }
+  ]
+
+  ocorrencias = [
+    {
+      nome: "Comida Estragando",
+      pontos: 10
+    },
+    {
+      nome: "Sapatos",
+      pontos: 5
+    }
+  ]
 
 }

@@ -1,0 +1,45 @@
+@import "~src/theme/colors.scss";
+.position-container{
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: $painel;
+    width: 100%;
+
+    .painel-azul{
+        flex: 1;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        div{
+            margin: auto;
+            font-size: 36px;
+        }
+    }
+    .painel-cinza{
+        padding: 5px;
+        flex: 3;
+        display: flex;
+        flex-direction: row;
+        border-radius: 10px;
+        align-items: center;
+        img{
+            height: 60px;
+            width: 60px;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+
+        .user-info{
+            margin-left: 10px;
+            .user-nome{
+                
+            }
+            .user-saldo{
+                color: $azul;
+                font-weight: bold;
+            }
+        }
+    }
+}

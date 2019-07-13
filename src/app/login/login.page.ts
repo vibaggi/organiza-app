@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { RepublicaService } from '../republica.service';
+import { RepublicaService } from '../services/republica.service';
 
 @Component({
   selector: 'app-login',
@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
         if(republica != null){
           //se encontrar registrar na memoria e redirecionar para a home
           localStorage.setItem('organiza-repubica', republica.nome)
-          this._router.navigate(['/home'])
+          this._router.navigate(['/tabs/home'])
         }else{
           this._router.navigate(['/pre-home'])
           //caso não tenha rep vai permanecer na pagina pre-home

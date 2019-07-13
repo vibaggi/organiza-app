@@ -1,0 +1,26 @@
+<ion-content fullscreen class="ion-padding ion-justify-content-end">
+  <ion-row class="ion-justify-content-left ion-margin-vertical perfil-info" (click)="router.navigate(['/tabs/home'])">
+      <img src="assets/back-arrow.svg" alt=""/>
+      <div>Perfil</div>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-margin-vertical">
+    <div class="title">{{republica}}</div>
+  </ion-row>
+
+  <ion-row class="ion-margin-vertical" *ngFor="let morador of moradores; let i = index;">
+      <div class="position-container">
+          <div class="painel-azul">
+              <div>{{i+1}}°</div>
+          </div>
+          <div class="painel-cinza">
+              <img src="assets/perfil.jpg" alt="">
+              <div class="user-info">
+                <div class="user-nome">{{morador.apelido}}</div>
+                <div class="user-saldo">{{morador.saldo}} pts</div>
+              </div>
+          </div>
+      </div>
+  </ion-row>
+
+</ion-content>
