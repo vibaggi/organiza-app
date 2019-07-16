@@ -10,10 +10,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
+import { ModalConcluirTarefaPage } from './modal-concluir-tarefa/modal-concluir-tarefa.page';
 
 @NgModule({
-  declarations: [AppComponent,],
-  entryComponents: [],
+  declarations: [AppComponent, ModalConcluirTarefaPage],
+  entryComponents: [ModalConcluirTarefaPage],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 

@@ -7,7 +7,9 @@ const routes: Routes = [
   { path: 'cadastro', loadChildren: './cadastro/pag1/pag1.module#Pag1PageModule' },
   { path: 'pre-home', loadChildren: './pre-home/pre-home.module#PreHomePageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  { path: 'rank', loadChildren: './rank/rank.module#RankPageModule' }
+  { path: 'rank', loadChildren: './rank/rank.module#RankPageModule' },
+  { path: 'tarefas', loadChildren: './tarefas/tarefas.module#TarefasPageModule' },
+  { path: 'modal-concluir-tarefa', loadChildren: './modal-concluir-tarefa/modal-concluir-tarefa.module#ModalConcluirTarefaPageModule' }
 ];
 
 @NgModule({

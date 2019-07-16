@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
       this._rep.inforRepublicaPorUsuario(localStorage.getItem('organiza-username')).subscribe((republica:any)=>{
         if(republica != null){
           //se encontrar registrar na memoria e redirecionar para a home
-          localStorage.setItem('organiza-repubica', republica.nome)
+          localStorage.setItem('organiza-republica', republica.nome)
           this._router.navigate(['/tabs/home'])
         }else{
           this._router.navigate(['/pre-home'])
@@ -56,7 +56,7 @@ export class LoginPage implements OnInit {
       })
     }else{
       //Caso tenha a republica registrada em memoria
-      this._router.navigate(['/home'])
+      this._router.navigate(['/tabs/home'])
     }
   }
 

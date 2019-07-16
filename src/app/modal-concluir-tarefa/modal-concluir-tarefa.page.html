@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/back-arrow.svg" alt="" (click)="dismiss()">
+    <ion-title>ESCOLHA UMA TAREFA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item *ngFor="let tarefa of tarefas" (click)="dismiss(tarefa)">
+          <ion-label>
+            <h2>{{tarefa.nome}}</h2>
+            <p>{{tarefa.pontos}} pontos</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+</ion-content>

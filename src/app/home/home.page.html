@@ -25,14 +25,14 @@
         <div class="extrato-container">
             <div class="painel-cinza">
                 <div class="lista lista-tarefas">
-                    <div class="lista-title">ÚLTIMAS TAREFAS</div>
+                    <div class="lista-title" *ngIf="tarefas.length > 0">ÚLTIMAS TAREFAS</div>
                     <div class="lista-item" *ngFor="let tarefa of tarefas">
                         <div class="lista-item-nome">{{tarefa.nome}}</div>
-                        <div class="lista-item-pontos">{{tarefa.pontos}} pts</div>
+                        <div class="lista-item-pontos">{{tarefa.valor}} pts</div>
                     </div>
                 </div>
                 <div class="lista lista-ocorrencias">
-                    <div class="lista-title">ÚLTIMAS OCORRENCIAS</div>
+                    <div class="lista-title" *ngIf="ocorrencias.length > 0">ÚLTIMAS OCORRENCIAS</div>
                     <div class="lista-item" *ngFor="let ocorrencia of ocorrencias">
                         <div class="lista-item-nome">{{ocorrencia.nome}}</div>
                         <div class="lista-item-pontos">{{ocorrencia.pontos}} pts</div>
