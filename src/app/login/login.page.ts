@@ -29,8 +29,9 @@ export class LoginPage implements OnInit {
   login(){
     console.log(this.usuario, " ", this.senha);
     this.auth.login(this.usuario, this.senha).subscribe((resp:any)=>{
-      console.log(resp.token);
+      console.log(resp);
       localStorage.setItem('organiza-username', this.usuario)
+      localStorage.setItem('organiza-apelido', resp.apelido)
       localStorage.setItem('organiza-password', this.senha)
       localStorage.setItem('organiza-token', resp.token)
       this.verificandoRep()

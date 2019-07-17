@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RepublicaService } from '../services/republica.service';
 
 @Component({
   selector: 'app-rank',
@@ -8,18 +9,17 @@ import { Router } from '@angular/router';
 })
 export class RankPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _repService: RepublicaService) { }
 
   republica = "Liga da Justiça"
-  moradores = [{
-    apelido: "Bromo da Silva",
-    saldo: 1280
-  }, {
-    apelido: "Baggison",
-    saldo: 1110
-  }]
+  moradores = []
 
   ngOnInit() {
+    this._repService.rankRepublica().subscribe((resp:any)=>{
+      this.moradores = resp.sort(function(a,b){return b.saldo - a.saldo})
+
+      console.log(resp);
+    })
   }
 
 }

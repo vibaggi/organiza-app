@@ -25,8 +25,8 @@ export class HomePage {
 
   colocacao = 3
   usuario = {
-    nome: "Bromo da Silva",
-    republica: "Liga da Justiça",
+    nome: localStorage.getItem('organiza-apelido'),
+    republica: localStorage.getItem('organiza-republica'),
     saldo: ""
   }
   tarefas = []

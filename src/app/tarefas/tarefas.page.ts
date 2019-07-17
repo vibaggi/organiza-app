@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalConcluirTarefaPage } from '../modal-concluir-tarefa/modal-concluir-tarefa.page';
 import { TarefasService } from '../services/tarefas.service';
+import * as moment from 'moment'
+
 
 @Component({
   selector: 'app-tarefas',
@@ -16,7 +18,7 @@ export class TarefasPage implements OnInit {
     this._tarefasService.buscarUltimasTarefasRep(5).subscribe((resp:any)=>{
       
       this.totalTarefasSemana = resp.total
-      this.tarefas = resp.ultimas.map(t=>{t.data = new Date(t.data); return t})
+      this.tarefas = resp.ultimas.map(t=>{t.data = moment(t.data).format('DD/MM/YYYY'); return t})
     })
   }
 
@@ -30,18 +32,6 @@ export class TarefasPage implements OnInit {
   melhorPontuadoPontos = 100
 
   tarefas = [
-    {
-      nome: "Louça",
-      pontos: 50,
-      usuario: "Bromo da silva",
-      data: "10/10/2018"
-    },
-    {
-      nome: "Tirar Lixo",
-      pontos: 20,
-      usuario: "Baggi",
-      data: "10/10/2018"
-    }
   ]
 
 
@@ -54,10 +44,13 @@ export class TarefasPage implements OnInit {
     var tarefa = (await modalConcluirTarefas.onWillDismiss()).data
     console.log(tarefa);
     //caso retorne undefined, o usuário não selecionou nenhuma tarefa
-    if(!tarefa){
+    if(tarefa != undefined && tarefa != null){
       //caso venha a tarefa, aplicar tarefa concluida
       this._tarefasService.concluirTarefa(tarefa).subscribe((resp:any)=>{
-        console.log(resp);
+        this._tarefasService.buscarUltimasTarefasRep(3).subscribe((resp:any)=>{
+          this.totalTarefasSemana = resp.total
+          this.tarefas = resp.ultimas.map(t=>{t.data = moment(t.data).format('DD/MM/YYYYY'); return t})
+        })
       }, error =>{
         console.log(error);
       })
