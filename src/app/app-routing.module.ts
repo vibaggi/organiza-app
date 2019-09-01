@@ -9,7 +9,11 @@ const routes: Routes = [
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'rank', loadChildren: './rank/rank.module#RankPageModule' },
   { path: 'tarefas', loadChildren: './tarefas/tarefas.module#TarefasPageModule' },
-  { path: 'modal-concluir-tarefa', loadChildren: './modal-concluir-tarefa/modal-concluir-tarefa.module#ModalConcluirTarefaPageModule' }
+  { path: 'modal-concluir-tarefa', loadChildren: './modal-concluir-tarefa/modal-concluir-tarefa.module#ModalConcluirTarefaPageModule' },
+  { path: 'modal-modelo-tarefas', loadChildren: './modal-modelo-tarefas/modal-modelo-tarefas.module#ModalModeloTarefasPageModule' },
+  { path: 'ocorrencias', loadChildren: './ocorrencias/ocorrencias.module#OcorrenciasPageModule' },
+  { path: 'modal-registrar-ocorrencia', loadChildren: './modal-registrar-ocorrencia/modal-registrar-ocorrencia.module#ModalRegistrarOcorrenciaPageModule' },
+  { path: 'modal-select-morador', loadChildren: './modal-select-morador/modal-select-morador.module#ModalSelectMoradorPageModule' }
 ];
 
 @NgModule({

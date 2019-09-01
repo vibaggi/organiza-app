@@ -8,7 +8,8 @@ export class TarefasService {
 
   constructor(private _http: HttpClient) { }
 
-  url = "http://localhost:3000"
+  // url = "http://localhost:3000"
+  url = "https://organiza-back.herokuapp.com"
 
   buscarModelosTarefas(){
     return this._http.get(this.url+"/republicas/getListaModelos/"+localStorage.getItem('organiza-republica'))

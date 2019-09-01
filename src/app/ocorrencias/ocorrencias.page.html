@@ -1,0 +1,53 @@
+<ion-content fullscreen class="ion-padding ion-justify-content-end">
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Puxe para atualizar"
+            refreshingSpinner="circles" refreshingText="Atualizando dados...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-row class="ion-justify-content-left ion-margin-vertical perfil-info">
+        <div>
+            <div class="republica-title">{{republica.nome}}</div>
+        </div>
+    </ion-row>
+
+    <ion-row class="ion-margin-vertical">
+        <div class="rank-container">
+            <div class="painel-vermelho">
+                <div class="tarefa-title">Ocorrências</div>
+                <div class="saldo">{{totalOcorrencias}}</div>
+            </div>
+            <div class="painel-cinza">
+                <div>Maior Vacilão:</div>
+                <div>{{vacilaoNome}}</div>
+                <div>{{vacilaoOcorrencias}} pts</div>
+            </div>
+        </div>
+    </ion-row>
+
+    <ion-row class="ion-margin-vertical">
+        <div class="extrato-container">
+            <div class="painel-cinza">
+                <div class="lista lista-tarefas">
+                    <div class="lista-title">ÚLTIMAS OCORRÊNCIAS NA REP</div>
+                    <div class="lista-item" *ngFor="let ocorrencia of ocorrencias">
+                        <div class="lista-item-left">
+                            <div class="lista-item-nome">{{ocorrencia.regra.nome}}</div>
+                            <div class="lista-item-usuario">{{ocorrencia.reu}}</div>
+                        </div>
+                        <div class="lista-item-right">
+                            <div class="lista-item-pontos">{{ocorrencia.regra.pontos}} pts</div>
+                            <div class="lista-item-data">{{ocorrencia.data}}</div> 
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="painel-cinza-escuro" (click)="registrarOcorrencia()">
+                REGISTRAR OCORRÊNCIA
+            </div>
+        </div>
+    </ion-row>
+
+</ion-content>

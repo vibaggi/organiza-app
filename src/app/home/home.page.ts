@@ -23,6 +23,7 @@ export class HomePage {
     })
   }
 
+
   colocacao = 3
   usuario = {
     nome: localStorage.getItem('organiza-apelido'),
@@ -31,5 +32,18 @@ export class HomePage {
   }
   tarefas = []
   ocorrencias = []
+
+
+  doRefresh(event){
+    this._pontos.consultaSaldo().subscribe((resp:any)=>{
+      console.log(resp);
+      this.usuario.saldo = resp.saldo
+    })
+    this._tarefas.buscarListaTarefasConcluidas().subscribe((resp:any)=>{
+      console.log(resp);
+      this.tarefas = resp
+      event.target.complete()
+    })
+  }
 
 }

@@ -9,7 +9,8 @@ export class AuthService {
 
   constructor(private http: HttpClient, private _router: Router) { }
 
-  url = "http://localhost:3000"
+  // url = "http://localhost:3000"
+  url = "https://organiza-back.herokuapp.com"
 
   login(usuario, senha){
     return this.http.post(this.url+"/login", {

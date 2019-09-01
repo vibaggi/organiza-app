@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { ModalConcluirTarefaPage } from '../modal-concluir-tarefa/modal-concluir-tarefa.page';
 import { TarefasService } from '../services/tarefas.service';
 import * as moment from 'moment'
+import { ModalModeloTarefasPage } from '../modal-modelo-tarefas/modal-modelo-tarefas.page';
 
 
 @Component({
@@ -55,5 +56,22 @@ export class TarefasPage implements OnInit {
         console.log(error);
       })
     }
+  }
+
+  async abrirModalCriarTarefas(){
+    const modalCriarTarefas = await this.modalController.create({
+      component: ModalModeloTarefasPage
+    })
+    await modalCriarTarefas.present()
+    
+  }
+
+  doRefresh(event){
+    this._tarefasService.buscarUltimasTarefasRep(5).subscribe((resp:any)=>{
+      console.log(resp);
+      this.totalTarefasSemana = resp.total
+      this.tarefas = resp.ultimas.map(t=>{t.data = moment(t.data).format('DD/MM/YYYY'); return t})
+      event.target.complete()
+    })
   }
 }

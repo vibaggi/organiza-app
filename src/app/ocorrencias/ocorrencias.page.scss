@@ -1,0 +1,111 @@
+@import "~src/theme/colors.scss";
+.republica-title{
+    font-size: 32px;
+    font-weight: bold;
+    color: $vermelho;
+}
+
+.rank-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $painel;
+    &>div{
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    .painel-vermelho{
+        align-items: center;
+        flex: 2;
+        font-size: 18px;
+        font-weight: bold;
+        .saldo{
+            font-size: 26px;
+        }
+    }
+    .painel-cinza{
+        flex: 3;
+    }
+}
+
+.extrato-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    background-color: $cinza-escuro;
+
+    &>div{
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+    }
+    .painel-cinza{
+        flex: 4;
+    }
+    .painel-cinza-escuro{
+        color: $background;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+
+.lista{
+    padding: 5px;
+    &-title{    
+        color: $vermelho;
+        margin: 5px 0;
+        font-weight: bold;
+    }
+    &-item{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 5px;
+        &>div{
+            display: flex;
+            flex-direction: column;
+        }
+        &-left{
+            flex: 2;
+            text-align: left;
+        }
+        &-right{
+            flex: 1;
+            text-align: right;
+        }
+        &-nome{
+            width: 80%;
+        }
+
+        &-pontos{
+            color: $verde;
+            font-weight: bold;
+        }
+
+        &-nome{
+            color: $azul;
+            font-weight: bold;
+        }
+
+    }
+}
+
+
+.btn-tarefa{
+    background-color: $azul;
+    color: $background;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    display: flex;
+    border-radius: 10px;
+    max-width: 150px;
+    img{
+        margin-right: 10px;
+    }
+}

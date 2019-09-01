@@ -1,7 +1,13 @@
 <ion-content fullscreen class="ion-padding ion-justify-content-end">
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Puxe para atualizar"
+            refreshingSpinner="circles" refreshingText="Atualizando dados...">
+        </ion-refresher-content>
+    </ion-refresher>
+
     <ion-row class="ion-justify-content-left ion-margin-vertical perfil-info">
-        <img src="assets/perfil.jpg" alt=""/>
+        <img src="assets/perfil.jpg" alt="" />
         <div>
             <div>{{usuario.nome}}</div>
             <div>{{usuario.republica}}</div>
@@ -15,7 +21,10 @@
                 <div id="saldo">{{usuario.saldo}}</div>
             </div>
             <div class="painel-cinza">
-                <div id="posicao-container"><div id="posicao">{{colocacao}}</div> <div>COLOCADO</div></div>
+                <div id="posicao-container">
+                    <div id="posicao">{{colocacao}}</div>
+                    <div>COLOCADO</div>
+                </div>
                 <div class="click-text" (click)="router.navigate(['/rank'])"> VER RANK COMPLETO </div>
             </div>
         </div>
@@ -38,7 +47,7 @@
                         <div class="lista-item-pontos">{{ocorrencia.pontos}} pts</div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="painel-azul">
                 <img src="assets/extrato-icon-white.svg" alt="">

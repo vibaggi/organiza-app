@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { TarefasPage } from '../tarefas/tarefas.page';
+import { OcorrenciasPage } from '../ocorrencias/ocorrencias.page';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'tarefas',
         component: TarefasPage
+      },
+      {
+        path: 'ocorrencias',
+        component: OcorrenciasPage
       },
       {
         path: '',
@@ -38,6 +43,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TabsPage, HomePage, TarefasPage]
+  declarations: [TabsPage, HomePage, TarefasPage,OcorrenciasPage]
 })
 export class TabsPageModule {}

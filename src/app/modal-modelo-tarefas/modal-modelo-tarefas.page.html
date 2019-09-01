@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/back-arrow.svg" alt="" (click)="dismiss()">
+    <ion-title>ESCOLHA UMA TAREFA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let tarefa of tarefas; let i = index">
+      <ion-icon name="trash" (click)="deletarTarefa(i)"></ion-icon>
+
+      <ion-input [(value)]="tarefa.nome" (ionChange)="atualizaTarefa(i, $event)"></ion-input>
+      <p (click)="mudarPontuacao(i)">
+        {{tarefa.valor}} pontos
+      </p>
+
+    </ion-item>
+   
+    <img src="/assets/add-icon.svg" alt="" id="add-img" (click)="novaTarefa()">
+
+
+  </ion-list>
+
+  <ion-button (click)="salvarMudancas()">SALVAR MUDANÇAS</ion-button>
+
+</ion-content>

@@ -1,9 +1,14 @@
 <ion-content fullscreen class="ion-padding ion-justify-content-end">
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Puxe para atualizar"
+            refreshingSpinner="circles" refreshingText="Atualizando dados...">
+        </ion-refresher-content>
+    </ion-refresher>
+
     <ion-row class="ion-justify-content-left ion-margin-vertical perfil-info">
         <div>
             <div class="republica-title">{{republica.nome}}</div>
-            <div>semana {{republica.semana}}</div>
         </div>
     </ion-row>
 
@@ -27,17 +32,17 @@
                 <div class="lista lista-tarefas">
                     <div class="lista-title">ÚLTIMAS TAREFAS NA REP</div>
                     <div class="lista-item" *ngFor="let tarefa of tarefas">
-                      <div class="lista-item-left">
-                          <div class="lista-item-nome">{{tarefa.nome}}</div>
-                          <div class="lista-item-usuario">{{tarefa.login}}</div>
-                      </div>
-                      <div class="lista-item-right">
-                          <div class="lista-item-pontos">{{tarefa.valor}} pts</div>
-                          <div class="lista-item-data">{{tarefa.data}}</div>
-                      </div>
+                        <div class="lista-item-left">
+                            <div class="lista-item-nome">{{tarefa.nome}}</div>
+                            <div class="lista-item-usuario">{{tarefa.login}}</div>
+                        </div>
+                        <div class="lista-item-right">
+                            <div class="lista-item-pontos">{{tarefa.valor}} pts</div>
+                            <div class="lista-item-data">{{tarefa.data}}</div>
+                        </div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="painel-azul">
                 <div>TAREFAS EM BONIFICAÇÃO</div>
@@ -47,14 +52,14 @@
     </ion-row>
 
     <ion-row class="ion-margin-vertical">
-      <div class="btn-tarefa">
-        <img src="assets/tarefa-registrar.svg" alt="">
-        <div class="btn-tarefa-label">CRIAR TAREFA</div>
-      </div>
-      <div class="btn-tarefa" (click)="abrirModalConcluirTarefas()">
-        <img src="assets/tarefa-check.svg" alt="">
-        <div class="btn-tarefa-label">TAREFA FEITA</div>
-      </div>
+        <div class="btn-tarefa" (click)="abrirModalCriarTarefas()">
+            <img src="assets/tarefa-registrar.svg" alt="">
+            <div class="btn-tarefa-label">CRIAR TAREFA</div>
+        </div>
+        <div class="btn-tarefa" (click)="abrirModalConcluirTarefas()">
+            <img src="assets/tarefa-check.svg" alt="">
+            <div class="btn-tarefa-label">TAREFA FEITA</div>
+        </div>
     </ion-row>
 
 </ion-content>

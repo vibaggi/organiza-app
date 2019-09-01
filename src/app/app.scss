@@ -15,6 +15,10 @@
     font-weight: bold;
 }
 
+.painel-vermelho{
+    background-color: $vermelho;
+    color: $background;
+}
 .painel-azul{
     background-color: $azul;
     color: $background;
@@ -22,6 +26,10 @@
 
 .painel-cinza{
     background-color: $painel;
+}
+
+.painel-cinza-escuro{
+    background-color: $cinza-escuro;
 }
 
 .logout-icon{

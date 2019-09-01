@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar>
+      <img src="assets/back-arrow.svg" alt="" (click)="dismiss()">
+      <ion-title>SELECIONE A LEI INFRIGIDA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+      <ion-list>
+          <ion-item *ngFor="let ocorrencia of ocorrencias" (click)="selecionarReu(ocorrencia)">
+            <ion-label>
+              <h2>{{ocorrencia.nome}}</h2>
+              <p>{{ocorrencia.pontos}} pontos</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+  
+  </ion-content>
+  

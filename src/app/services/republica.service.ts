@@ -8,10 +8,11 @@ export class RepublicaService {
 
   constructor(private _http: HttpClient) { }
 
-  url = "http://localhost:3000/republicas"
+  // url = "http://localhost:3000/republicas"
+  url = "https://organiza-back.herokuapp.com/republicas"
 
   infoRepublica(){
-
+    return this._http.get(this.url+"/info/poruser/"+localStorage.getItem('organiza-username'))
   }
 
   inforRepublicaPorUsuario(nomeUser){
@@ -21,4 +22,13 @@ export class RepublicaService {
   rankRepublica(){
     return this._http.get(this.url+"/rank/"+localStorage.getItem('organiza-republica'))
   }
+
+  atualizarModelosTarefas(modelos){
+    return this._http.post(this.url+"/atualizarModelosTarefas", {
+      modelos: modelos,
+      nomeRepublica: localStorage.getItem('organiza-republica')
+    })
+  }
+
+
 }
