@@ -12,6 +12,8 @@
             <div>{{usuario.nome}}</div>
             <div>{{usuario.republica}}</div>
         </div>
+
+        <img id="icon-logout" src="assets/logout.svg" alt="logout" (click)="authService.logout()">
     </ion-row>
 
     <ion-row class="ion-margin-vertical">

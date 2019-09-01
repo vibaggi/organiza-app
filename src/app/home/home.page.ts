@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PontosService } from '../services/pontos.service';
 import { Router } from '@angular/router';
 import { TarefasService } from '../services/tarefas.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,12 @@ import { TarefasService } from '../services/tarefas.service';
 })
 export class HomePage {
 
-  constructor(private _pontos: PontosService, private router: Router, private _tarefas: TarefasService) {}
+  constructor(
+    private _pontos:      PontosService, 
+    private router:       Router, 
+    private _tarefas:     TarefasService, 
+    private authService:  AuthService
+  ) {}
 
   ngOnInit(){
     this._pontos.consultaSaldo().subscribe((resp:any)=>{

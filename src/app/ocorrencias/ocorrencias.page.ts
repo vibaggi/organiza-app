@@ -34,6 +34,21 @@ export class OcorrenciasPage implements OnInit {
       component: ModalRegistrarOcorrenciaPage
     })
     await modalNovaOcorrencia.present()
+    await modalNovaOcorrencia.onWillDismiss()
+
+    //Atualizando lista
+    this.pesquisar(5)
+
+  }
+
+  doRefresh(event){
+    this.service.buscarUltimasOcorrenciasRep(5).subscribe((resp:any)=>{
+      this.totalOcorrencias = resp.total
+      this.ocorrencias = resp.ultimas
+      event.target.complete()
+    }, error =>{
+      event.target.complete()
+    })
   }
 
 }

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // urlBackEnd: "http://localhost:3000"
+  urlBackEnd: "https://organiza-back.herokuapp.com"
 };
 
 /*

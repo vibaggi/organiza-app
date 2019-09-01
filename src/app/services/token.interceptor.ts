@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators'
 import { of } from 'rxjs'
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 /**
  * ESSA CLASSE DEVE SER DECLARADA NO APP.MODULE EM PROVIDER. 
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private authService: AuthService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         const token = localStorage.getItem('organiza-token')
@@ -28,9 +29,8 @@ export class TokenInterceptor implements HttpInterceptor {
             return next.handle(dupReq).pipe(
                 //Tratando token expirado.
                     catchError(error => {
-                        console.log(error);
-                        console.log(error.status)
-                        if(error.status == 401) this.router.navigate(['/login'])
+                        console.log("INTERCEPTOR :: ", error);
+                        if(error.status == 401) this.authService.logout()
                         return of(error)
                     })
                 )

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { LoadingController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pag1',
@@ -8,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class Pag1Page implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private _router: Router, private loginModal: LoadingController, private alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -17,7 +19,7 @@ export class Pag1Page implements OnInit {
     username: undefined,
     password: undefined,
     email: undefined,
-    nickname: undefined
+    apelido: undefined
   }
 
   confirmPass = ""
@@ -26,11 +28,28 @@ export class Pag1Page implements OnInit {
     return this.cadastro.password != this.confirmPass || !this.cadastro.username
   }
 
-  cadastrar(){
+  async cadastrar(){
+    var loading = await this.loginModal.create({
+      message: 'Criando conta...',
+      spinner: 'crescent'
+    })
+
+    loading.present()
+
     this.authService.cadastrar(this.cadastro).subscribe((resp:any)=>{
       console.log(resp);
-    }, error =>{
+      loading.dismiss()
+      this._router.navigate(['/login'])
+    }, async error =>{
       console.log(error);
+      loading.dismiss()
+      var alertModal = await this.alertController.create({
+        message: error.error,
+        buttons: ['OK']
+      })
+
+      await  alertModal.present()
+
     })
   }
 

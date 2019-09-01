@@ -20,6 +20,10 @@ export class ModalRegistrarOcorrenciaPage implements OnInit {
     })
   }
 
+  dismiss(){
+    this.ownModal.dismiss()
+  }
+
   async selecionarReu(ocorrencia){
     const modalSelMorador = await this.modalController.create({
       component: ModalSelectMoradorPage

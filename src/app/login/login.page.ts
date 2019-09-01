@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { RepublicaService } from '../services/republica.service';
+import { LoadingController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,13 @@ import { RepublicaService } from '../services/republica.service';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private auth: AuthService, private _router: Router, private _rep: RepublicaService) { }
+  constructor(
+    private auth: AuthService, 
+    private _router: Router, 
+    private _rep: RepublicaService, 
+    private loadingController: LoadingController,
+    private alertController: AlertController
+    ) { }
 
   usuario = ""
   senha = ""
@@ -26,19 +33,36 @@ export class LoginPage implements OnInit {
     }
   }
 
-  login(){
-    console.log(this.usuario, " ", this.senha);
-    this.auth.login(this.usuario, this.senha).subscribe((resp:any)=>{
+  async login(){
+
+    var loading = await this.loadingController.create({
+      message: 'Autenticando com o servidor...',
+      spinner: "crescent"
+    })
+
+    loading.present()
+    this.auth.login(this.usuario, this.senha).subscribe(async (resp:any)=>{
       console.log(resp);
       localStorage.setItem('organiza-username', this.usuario)
       localStorage.setItem('organiza-apelido', resp.apelido)
       localStorage.setItem('organiza-password', this.senha)
       localStorage.setItem('organiza-token', resp.token)
-      this.verificandoRep()
+      await this.verificandoRep()
+      loading.dismiss()
+    }, async error =>{
+      console.log(error);
+      loading.dismiss()
+      var alertModal = await this.alertController.create({
+        message: 'Falha ao tentar login, verifique usuario e senha!',
+        buttons: ['OK']
+      })
+
+      await  alertModal.present()
+
     })
   }
 
-  verificandoRep(){
+  async verificandoRep(){
     //verificando se usuario está vinculado a uma republica
     var rep = localStorage.getItem('organiza-republica')
     console.log(rep);
@@ -53,11 +77,12 @@ export class LoginPage implements OnInit {
           this._router.navigate(['/pre-home'])
           //caso não tenha rep vai permanecer na pagina pre-home
         }
-     
+        return
       })
     }else{
       //Caso tenha a republica registrada em memoria
       this._router.navigate(['/tabs/home'])
+      return
     }
   }
 

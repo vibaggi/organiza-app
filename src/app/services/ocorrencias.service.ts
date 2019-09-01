@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,7 @@ export class OcorrenciasService {
 
   constructor(private _http: HttpClient) { }
 
-  // url = "http://localhost:3000/ocorrencias"
-  url = "https://organiza-back.herokuapp.com"
+  url = environment.urlBackEnd+"/ocorrencias"
 
   buscarUltimasOcorrenciasRep(quantidade){
     return this._http.get(this.url+"/"+localStorage.getItem('organiza-republica')+"/"+quantidade)

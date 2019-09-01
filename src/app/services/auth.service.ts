@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private _router: Router) { }
 
-  // url = "http://localhost:3000"
-  url = "https://organiza-back.herokuapp.com"
+  url = environment.urlBackEnd
 
   login(usuario, senha){
     return this.http.post(this.url+"/login", {
