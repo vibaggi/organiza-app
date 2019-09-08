@@ -30,6 +30,7 @@ export class AuthService {
     localStorage.removeItem('organiza-username')
     localStorage.removeItem('organiza-password')
     localStorage.removeItem('organiza-token')
+    localStorage.removeItem('organiza-republica')
     this._router.navigate(['/login'])
   }
 

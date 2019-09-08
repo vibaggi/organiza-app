@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/back-arrow.svg" alt="" (click)="dismiss()">
+    <ion-title>INSIRA O NOME DA REPUBLICA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item class="ion-margin-vertical">
+      <ion-input placeholder="Nome Republcia" [(ngModel)]="nomeRepublica"></ion-input>
+    </ion-item>
+     
+    <ion-button expand="block" (click)="criarRepublica()">CRIAR REPUBLICA</ion-button>
+
+</ion-content>

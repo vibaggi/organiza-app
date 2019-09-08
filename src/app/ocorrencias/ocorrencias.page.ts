@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OcorrenciasService } from '../services/ocorrencias.service';
 import { ModalController } from '@ionic/angular';
 import { ModalRegistrarOcorrenciaPage } from '../modal-registrar-ocorrencia/modal-registrar-ocorrencia.page';
+import * as momento from 'moment'
 
 @Component({
   selector: 'app-ocorrencias',
@@ -24,7 +25,7 @@ export class OcorrenciasPage implements OnInit {
   pesquisar(quantidade){
     this.service.buscarUltimasOcorrenciasRep(quantidade).subscribe((resp:any)=>{
       this.totalOcorrencias = resp.total
-      this.ocorrencias = resp.ultimas
+      this.ocorrencias = resp.ultimas.map(ocorrencia =>{ ocorrencia.data = momento(ocorrencia.data).format('DD/MM/YYYY'); return ocorrencia})
     })
   }
 
@@ -44,7 +45,7 @@ export class OcorrenciasPage implements OnInit {
   doRefresh(event){
     this.service.buscarUltimasOcorrenciasRep(5).subscribe((resp:any)=>{
       this.totalOcorrencias = resp.total
-      this.ocorrencias = resp.ultimas
+      this.ocorrencias = resp.ultimas.map(ocorrencia =>{ ocorrencia.data = momento(ocorrencia.data).format('DD/MM/YYYY'); return ocorrencia})
       event.target.complete()
     }, error =>{
       event.target.complete()

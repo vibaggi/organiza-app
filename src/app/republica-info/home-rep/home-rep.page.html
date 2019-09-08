@@ -1,0 +1,19 @@
+<ion-content fullscreen class="ion-padding ion-justify-content-end">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Puxe para atualizar"
+          refreshingSpinner="circles" refreshingText="Atualizando dados...">
+      </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-row class="ion-justify-content-left ion-margin-vertical perfil-info">
+      <div>
+          <div class="republica-title">{{republica.nome}}</div>
+      </div>
+  </ion-row>
+
+  <ion-row class="ion-margin-vertical">
+      
+  </ion-row>
+
+</ion-content>

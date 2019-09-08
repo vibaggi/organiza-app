@@ -13,7 +13,9 @@ const routes: Routes = [
   { path: 'modal-modelo-tarefas', loadChildren: './modal-modelo-tarefas/modal-modelo-tarefas.module#ModalModeloTarefasPageModule' },
   { path: 'ocorrencias', loadChildren: './ocorrencias/ocorrencias.module#OcorrenciasPageModule' },
   { path: 'modal-registrar-ocorrencia', loadChildren: './modal-registrar-ocorrencia/modal-registrar-ocorrencia.module#ModalRegistrarOcorrenciaPageModule' },
-  { path: 'modal-select-morador', loadChildren: './modal-select-morador/modal-select-morador.module#ModalSelectMoradorPageModule' }
+  { path: 'modal-select-morador', loadChildren: './modal-select-morador/modal-select-morador.module#ModalSelectMoradorPageModule' },
+  { path: 'home-rep', loadChildren: './republica-info/home-rep/home-rep.module#HomeRepPageModule' },
+  { path: 'create-rep-modal', loadChildren: './republica-info/create-rep-modal/create-rep-modal.module#CreateRepModalPageModule' }
 ];
 
 @NgModule({

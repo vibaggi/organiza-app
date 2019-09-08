@@ -6,10 +6,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class RepublicaService {
+  
 
   constructor(private _http: HttpClient) { }
 
   url = environment.urlBackEnd
+
+  criarRepublica(nomeRepublica: string) {
+    return this._http.post(this.url+'/republicas/criar', {
+      nomeRepublica: nomeRepublica,
+      login:  localStorage.getItem('organiza-username')
+    })
+  }
 
   infoRepublica(){
     return this._http.get(this.url+"/republicas/info/poruser/"+localStorage.getItem('organiza-username'))
