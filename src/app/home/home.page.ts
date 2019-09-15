@@ -3,6 +3,8 @@ import { PontosService } from '../services/pontos.service';
 import { Router } from '@angular/router';
 import { TarefasService } from '../services/tarefas.service';
 import { AuthService } from '../services/auth.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { RepublicaService } from '../services/republica.service';
 
 @Component({
   selector: 'app-home',
@@ -13,24 +15,18 @@ export class HomePage {
 
   constructor(
     private _pontos:      PontosService, 
-    private router:       Router, 
     private _tarefas:     TarefasService, 
+    private _republica:   RepublicaService,
+    private router:       Router,
     private authService:  AuthService
   ) {}
 
   ngOnInit(){
-    this._pontos.consultaSaldo().subscribe((resp:any)=>{
-      console.log(resp);
-      this.usuario.saldo = resp.saldo
-    })
-    this._tarefas.buscarListaTarefasConcluidas().subscribe((resp:any)=>{
-      console.log(resp);
-      this.tarefas = resp
-    })
+    this.atualizarDados()
   }
 
 
-  colocacao = 3
+  colocacao = ""
   usuario = {
     nome: localStorage.getItem('organiza-apelido'),
     republica: localStorage.getItem('organiza-republica'),
@@ -40,15 +36,23 @@ export class HomePage {
   ocorrencias = []
 
 
-  doRefresh(event){
+  async doRefresh(event){
+    await this.atualizarDados()
+    event.target.complete()
+  }
+
+  async atualizarDados(){
     this._pontos.consultaSaldo().subscribe((resp:any)=>{
-      console.log(resp);
-      this.usuario.saldo = resp.saldo
+      this.usuario.saldo  = resp.saldo
     })
     this._tarefas.buscarListaTarefasConcluidas().subscribe((resp:any)=>{
-      console.log(resp);
       this.tarefas = resp
-      event.target.complete()
+      
+    })
+
+    await this._republica.rankRepublica().subscribe((moradores:any)=>{
+      var usuario = localStorage.getItem('organiza-username')
+      this.colocacao = moradores.sort(function(a,b){return b.saldo - a.saldo}).findIndex(morador=> morador.login == usuario) + 1
     })
   }
 

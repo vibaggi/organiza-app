@@ -3,6 +3,7 @@ import { OcorrenciasService } from '../services/ocorrencias.service';
 import { ModalController } from '@ionic/angular';
 import { ModalRegistrarOcorrenciaPage } from '../modal-registrar-ocorrencia/modal-registrar-ocorrencia.page';
 import * as momento from 'moment'
+import { ModalModeloOcorrenciaPage } from '../modal-modelo-ocorrencia/modal-modelo-ocorrencia.page';
 
 @Component({
   selector: 'app-ocorrencias',
@@ -40,6 +41,15 @@ export class OcorrenciasPage implements OnInit {
     //Atualizando lista
     this.pesquisar(5)
 
+  }
+
+  async abrirModalLeis(){
+    const modalLeis = await this.modal.create({
+      component: ModalModeloOcorrenciaPage
+    })
+
+    await modalLeis.present()
+    await modalLeis.onWillDismiss()
   }
 
   doRefresh(event){

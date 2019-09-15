@@ -38,5 +38,12 @@ export class RepublicaService {
     })
   }
 
+  atualizarLeis(leis){
+    return this._http.post(this.url+"/republicas/atualizarRegras", {
+      nomeRepublica: localStorage.getItem('organiza-republica'),
+      regrasLista: leis
+    })
+  }
+
 
 }

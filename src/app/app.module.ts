@@ -14,10 +14,11 @@ import { ModalConcluirTarefaPage } from './modal-concluir-tarefa/modal-concluir-
 import { ModalModeloTarefasPage } from './modal-modelo-tarefas/modal-modelo-tarefas.page'
 import { ModalRegistrarOcorrenciaPage } from './modal-registrar-ocorrencia/modal-registrar-ocorrencia.page';
 import { ModalSelectMoradorPage } from './modal-select-morador/modal-select-morador.page';
+import { ModalModeloOcorrenciaPage } from './modal-modelo-ocorrencia/modal-modelo-ocorrencia.page';
 
 @NgModule({
-  declarations: [AppComponent, ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage],
-  entryComponents: [ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage],
+  declarations: [AppComponent, ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage],
+  entryComponents: [ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
