@@ -77,7 +77,8 @@
     }
 
     .painel-cinza{
-        height: 85%;
+        height: 85%;  
+        overflow-y: scroll;
     }
     .painel-azul{
         display: flex;
