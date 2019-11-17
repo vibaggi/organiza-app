@@ -28,6 +28,12 @@
     }
     .painel-cinza{
         flex: 3;
+        align-items: center;
+        .click-text{
+            margin-top: 10px;
+            color: $vermelho;
+            font-size: 12px;
+        }
     }
 }
 
