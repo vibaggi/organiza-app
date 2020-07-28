@@ -12,9 +12,11 @@ export class RepublicaService {
 
   url = environment.urlBackEnd
 
-  criarRepublica(nomeRepublica: string) {
+  criarRepublica(nomeRepublica: string, usuariosLogin: string[]) {
     return this._http.post(this.url+'/republicas/criar', {
-      nomeRepublica: nomeRepublica,
+      nome: nomeRepublica,
+      participantesID: usuariosLogin,
+      regrasLista: [],
       login:  localStorage.getItem('organiza-username')
     })
   }
@@ -43,6 +45,10 @@ export class RepublicaService {
       nomeRepublica: localStorage.getItem('organiza-republica'),
       regrasLista: leis
     })
+  }
+
+  usuariosSemRepublica(){
+    return this._http.get(this.url+"/republicas/usuario-sem-republica")
   }
 
 

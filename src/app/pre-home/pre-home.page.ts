@@ -22,4 +22,8 @@ export class PreHomePage implements OnInit {
     this._auth.logout()
   }
 
+  redirectCriarRep(){
+    this._router.navigate(['create-rep-modal'])
+  }
+
 }

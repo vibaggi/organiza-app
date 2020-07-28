@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'modal-registrar-ocorrencia', loadChildren: './modal-registrar-ocorrencia/modal-registrar-ocorrencia.module#ModalRegistrarOcorrenciaPageModule' },
   { path: 'modal-select-morador', loadChildren: './modal-select-morador/modal-select-morador.module#ModalSelectMoradorPageModule' },
   { path: 'home-rep', loadChildren: './republica-info/home-rep/home-rep.module#HomeRepPageModule' },
-  { path: 'create-rep-modal', loadChildren: './republica-info/create-rep-modal/create-rep-modal.module#CreateRepModalPageModule' },  { path: 'modal-modelo-ocorrencia', loadChildren: './modal-modelo-ocorrencia/modal-modelo-ocorrencia.module#ModalModeloOcorrenciaPageModule' }
+  { path: 'create-rep-modal', loadChildren: './republica-info/create-rep-modal/create-rep-modal.module#CreateRepModalPageModule' },  { path: 'modal-modelo-ocorrencia', loadChildren: './modal-modelo-ocorrencia/modal-modelo-ocorrencia.module#ModalModeloOcorrenciaPageModule' },
+  { path: 'modal-select-usuario', loadChildren: './republica-info/modal-select-usuario/modal-select-usuario.module#ModalSelectUsuarioPageModule' }
 
 ];
 
