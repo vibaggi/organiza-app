@@ -14,9 +14,9 @@ Acesse: https://organiza-app.herokuapp.com/
 ## Arquitetura
 
 O projeto Organiza está separado em dois repositórios. 
-O front-end está desenvolvido em [Ionic](https://ionicframework.com/), podendo ser feito um build para app ou acessado [via navegador](https://organiza-app.herokuapp.com/) pelo celular.
+O [front-end](https://github.com/vibaggi/organiza-app) está desenvolvido em [Ionic](https://ionicframework.com/), podendo ser feito um build para app ou acessado [via navegador](https://organiza-app.herokuapp.com/) pelo celular.
 
-O back-end está desenvolvido em NodeJS (javascript).
+O [back-end](https://github.com/vibaggi/organiza-backend) está desenvolvido em NodeJS (javascript).
 
 O projeto conta com uso de NoSQL para a base de dados, usando o mongodb Atlas.
 
