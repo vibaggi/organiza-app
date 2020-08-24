@@ -16,6 +16,8 @@ import { ModalRegistrarOcorrenciaPage } from './modal-registrar-ocorrencia/modal
 import { ModalSelectMoradorPage } from './modal-select-morador/modal-select-morador.page';
 import { ModalModeloOcorrenciaPage } from './modal-modelo-ocorrencia/modal-modelo-ocorrencia.page';
 import { ModalSelectUsuarioPage } from './republica-info/modal-select-usuario/modal-select-usuario.page';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage, ModalSelectUsuarioPage],
@@ -24,7 +26,7 @@ import { ModalSelectUsuarioPage } from './republica-info/modal-select-usuario/mo
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
