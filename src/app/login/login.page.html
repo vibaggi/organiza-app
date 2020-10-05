@@ -9,15 +9,15 @@
   
  
   <ion-item class="ion-margin-vertical">
-    <ion-input placeholder="USUARIO" [(ngModel)]="usuario"></ion-input>
+    <ion-input placeholder="USUARIO" [(ngModel)]="usuario" id="userInput"></ion-input>
   </ion-item>
   <ion-item class="ion-margin-vertical">
-    <ion-input placeholder="SENHA" type="password" [(ngModel)]="senha"></ion-input>
+    <ion-input placeholder="SENHA" type="password" [(ngModel)]="senha" id="passwordInput"></ion-input>
   </ion-item>
 
-  <ion-button expand="block" (click)="login()">ENTRAR</ion-button>
+  <ion-button expand="block" (click)="login()" id="btnLogin">ENTRAR</ion-button>
   <ion-row class="ion-justify-content-center">
-    <div class="title-text" [routerLink]="(['/cadastro'])">novo cadastro</div>
+    <div class="title-text" [routerLink]="(['/cadastro'])" id="btnNovoCadastro">novo cadastro</div>
   </ion-row>
 
 </ion-content>

@@ -10,25 +10,25 @@
   </ion-row>
   
   <ion-item class="ion-margin-vertical">
-    <ion-input placeholder="usuário" [(ngModel)]="cadastro.username"></ion-input>
+    <ion-input placeholder="usuário" [(ngModel)]="cadastro.username" id="inputUser"></ion-input>
   </ion-item>
   <ion-item class="ion-margin-vertical">
-    <ion-input placeholder="apelido" [(ngModel)]="cadastro.apelido"></ion-input>
+    <ion-input placeholder="apelido" [(ngModel)]="cadastro.apelido" id="inputNickName"></ion-input>
   </ion-item>
   <ion-item class="ion-margin-vertical">
-    <ion-input placeholder="e-mail" [(ngModel)]="cadastro.email"></ion-input>
+    <ion-input placeholder="e-mail" [(ngModel)]="cadastro.email" id="inputEmail"></ion-input>
   </ion-item>
   <ion-row class="ion-justify-content-center">
     <div class="title-text">informar senha</div>
   </ion-row>
   <ion-item class="ion-margin-vertical">
-    <ion-input placeholder="senha" type="password" [(ngModel)]="cadastro.password"></ion-input>
+    <ion-input placeholder="senha" type="password" [(ngModel)]="cadastro.password" id="inputPassword"></ion-input>
   </ion-item>
   <ion-item class="ion-margin-vertical">
-    <ion-input placeholder="confirmar senha" type="password" [(ngModel)]="confirmPass"></ion-input>
+    <ion-input placeholder="confirmar senha" type="password" [(ngModel)]="confirmPass" id="inputConfirmPassword"></ion-input>
   </ion-item>
 
-  <ion-button expand="block" (click)="cadastrar()" [disabled]="verificaCampos()">CADASTRAR</ion-button>
+  <ion-button expand="block" (click)="cadastrar()" [disabled]="verificaCampos()" id="btnCadastrar">CADASTRAR</ion-button>
  
 
 </ion-content>
