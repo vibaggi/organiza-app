@@ -11,4 +11,26 @@
 
 <ion-content>
 
+  <ion-item><ion-label color="primary">Dados da Conta</ion-label></ion-item>
+
+  <ion-item lines="none"><ion-label>Apelido: {{usuario.apelido}}</ion-label></ion-item>
+  <ion-item lines="none"><ion-label>Usuário: {{usuario.username}}</ion-label></ion-item>
+  <ion-item lines="none"><ion-label>República: {{republica.nome}}</ion-label></ion-item>
+  
+  
+  <ion-item><ion-label color="primary">Moradores de República</ion-label></ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let morador of republica.moradores">
+      <ion-label>
+        <h2>{{morador}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item><ion-label color="primary">Ações</ion-label></ion-item>
+  <ion-button color="medium" (click)="selecionarMoradores()">Incluir Membro</ion-button>
+  <ion-button color="warning">Resetar Pontos</ion-button>
+  <ion-button color="danger">Sair da República</ion-button>
+  
 </ion-content>

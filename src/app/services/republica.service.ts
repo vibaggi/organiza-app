@@ -51,5 +51,12 @@ export class RepublicaService {
     return this._http.get(this.url+"/republicas/usuario-sem-republica")
   }
 
+  adicionarMembro(login, nomeRepublica){
+    return this._http.post(this.url+"/republicas/adicionaMembro", {
+      login,
+      nomeRepublica
+    })
+  }
+
 
 }
