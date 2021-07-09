@@ -58,5 +58,12 @@ export class RepublicaService {
     })
   }
 
-
+  removerMorador(login: string, nomeRepublica: string){
+    return this._http.delete(this.url+"/republicas/removerMorador", {
+      params: {
+        login,
+        nomeRepublica
+      }
+    })
+  }
 }

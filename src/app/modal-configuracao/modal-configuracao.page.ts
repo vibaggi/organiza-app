@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController, ModalController } from '@ionic/angular';
 import { ModalSelectUsuarioPage } from '../republica-info/modal-select-usuario/modal-select-usuario.page';
 import { RepublicaService } from '../services/republica.service';
 
@@ -10,7 +11,7 @@ import { RepublicaService } from '../services/republica.service';
 })
 export class ModalConfiguracaoPage implements OnInit {
 
-  constructor(private modalCtrl: ModalController, private service: RepublicaService) { }
+  constructor(private modalCtrl: ModalController, private service: RepublicaService, public alertController: AlertController, private _router: Router) { }
 
   usuario = {
     apelido: localStorage.getItem('organiza-apelido'),
@@ -44,6 +45,25 @@ export class ModalConfiguracaoPage implements OnInit {
       })
       this.republica.moradores.push(morador.data.login)
     })
+  }
+
+  async sairRepublica(){
+    const alert = await this.alertController.create({
+      header: 'Atenção',
+      subHeader: 'Sair da república',
+      message: 'Uma vez que sair de sua republical, sua pontuação não poderá ser restaurada!',
+      buttons: [{
+        text: 'SIM',
+        handler: () => {
+          this.service.removerMorador(this.usuario.username, this.republica.nome).subscribe((resp)=>{
+            this._router.navigate(['/pre-home'])
+            this.modalCtrl.dismiss()
+          })
+        }
+      }, 'NÃO']
+    })
+    
+    await alert.present()
   }
 
 }
