@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  urlBackEnd: "http://localhost:3000"
-  // urlBackEnd: "https://organiza-back.herokuapp.com"
+  // urlBackEnd: "http://localhost:3000"
+  urlBackEnd: "https://organiza-back.herokuapp.com"
 };
 
 /*
