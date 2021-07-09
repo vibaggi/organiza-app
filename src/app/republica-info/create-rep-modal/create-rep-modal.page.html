@@ -20,8 +20,9 @@
     <ion-item>
       <ion-label>{{criador}}</ion-label>
     </ion-item>
-    <ion-item *ngFor="let morador of moradores">
+    <ion-item *ngFor="let morador of moradores; let i = index">
       <ion-label >{{morador}}</ion-label>
+      <ion-icon name="trash" (click)="removerMorador(i)"></ion-icon>
     </ion-item>
     
   </ion-list>

@@ -60,4 +60,8 @@ export class CreateRepModalPage implements OnInit {
     })
   }
 
+  async removerMorador(index){
+    this.moradores.splice(index)
+  }
+
 }

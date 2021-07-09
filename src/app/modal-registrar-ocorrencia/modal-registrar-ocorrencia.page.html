@@ -1,6 +1,10 @@
 <ion-header>
     <ion-toolbar>
-      <img src="assets/back-arrow.svg" alt="" (click)="dismiss()">
+      <ion-buttons slot="start">
+        <ion-button (click)="dismiss()" >
+          <ion-icon name="arrow-dropleft-circle" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
       <ion-title>SELECIONE A LEI INFRIGIDA</ion-title>
     </ion-toolbar>
   </ion-header>

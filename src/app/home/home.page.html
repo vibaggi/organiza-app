@@ -8,12 +8,12 @@
 
     <ion-row class="ion-justify-content-left ion-margin-vertical perfil-info">
         <img src="assets/perfil.jpg" alt="" />
-        <div>
+        <div style="margin-right: auto;">
             <div>{{usuario.nome}}</div>
             <div>{{usuario.republica}}</div>
         </div>
-
-        <img id="icon-logout" src="assets/logout.svg" alt="logout" (click)="authService.logout()">
+        <ion-icon name="settings" size="large" style="margin-right: 10px;" (click)="abrirConfiguracoes()"></ion-icon>
+        <ion-icon name="exit"     size="large"  (click)="authService.logout()"></ion-icon>
     </ion-row>
 
     <ion-row class="ion-margin-vertical">

@@ -5,6 +5,8 @@ import { TarefasService } from '../services/tarefas.service';
 import { AuthService } from '../services/auth.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { RepublicaService } from '../services/republica.service';
+import { ModalController } from '@ionic/angular';
+import { ModalConfiguracaoPage } from '../modal-configuracao/modal-configuracao.page';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +20,8 @@ export class HomePage {
     private _tarefas:     TarefasService, 
     private _republica:   RepublicaService,
     private router:       Router,
-    private authService:  AuthService
+    private authService:  AuthService,
+    private modalController: ModalController
   ) {}
 
   ngOnInit(){
@@ -54,6 +57,13 @@ export class HomePage {
       var usuario = localStorage.getItem('organiza-username')
       this.colocacao = moradores.sort(function(a,b){return b.saldo - a.saldo}).findIndex(morador=> morador.login == usuario) + 1
     })
+  }
+
+  async abrirConfiguracoes(){
+    const modal = await this.modalController.create({
+      component: ModalConfiguracaoPage
+    })
+    await modal.present()
   }
 
 }

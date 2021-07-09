@@ -17,7 +17,7 @@ export class OcorrenciasPage implements OnInit {
   totalOcorrencias = 0
   vacilaoNome = ''
   vacilaoOcorrencias = 0
-  republica = {nome:'Liga da Justica'}
+  republica = {nome:localStorage.getItem('organiza-republica')}
 
   ngOnInit() {
     this.pesquisar(5)

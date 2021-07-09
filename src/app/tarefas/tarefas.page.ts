@@ -24,11 +24,11 @@ export class TarefasPage implements OnInit {
   }
 
   republica = {
-    nome: "Liga da Justiça",
+    nome: localStorage.getItem('organiza-republica'),
     semana: 22
   }
 
-  totalTarefasSemana = 25;
+  totalTarefasSemana = 0;
   melhorPontuadoNome = "Barto"
   melhorPontuadoPontos = 100
 

@@ -11,7 +11,7 @@ export class RankPage implements OnInit {
 
   constructor(private router: Router, private _repService: RepublicaService) { }
 
-  republica = "Liga da Justiça"
+  republica = localStorage.getItem('organiza-republica')
   moradores = []
 
   ngOnInit() {

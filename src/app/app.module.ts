@@ -18,10 +18,11 @@ import { ModalModeloOcorrenciaPage } from './modal-modelo-ocorrencia/modal-model
 import { ModalSelectUsuarioPage } from './republica-info/modal-select-usuario/modal-select-usuario.page';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ModalConfiguracaoPage } from './modal-configuracao/modal-configuracao.page';
 
 @NgModule({
-  declarations: [AppComponent, ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage, ModalSelectUsuarioPage],
-  entryComponents: [ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage, ModalSelectUsuarioPage],
+  declarations: [AppComponent, ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage, ModalSelectUsuarioPage, ModalConfiguracaoPage],
+  entryComponents: [ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage, ModalSelectUsuarioPage, ModalConfiguracaoPage],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
