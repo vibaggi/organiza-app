@@ -17,7 +17,7 @@ export class TarefasPage implements OnInit {
 
   ngOnInit() {
     this._tarefasService.buscarUltimasTarefasRep(5).subscribe((resp:any)=>{
-      
+      console.log(resp);
       this.totalTarefasSemana = resp.total
       this.tarefas = resp.ultimas.map(t=>{t.data = moment(t.data).format('DD/MM/YYYY'); return t})
     })
@@ -48,7 +48,8 @@ export class TarefasPage implements OnInit {
     if(tarefa != undefined && tarefa != null){
       //caso venha a tarefa, aplicar tarefa concluida
       this._tarefasService.concluirTarefa(tarefa).subscribe((resp:any)=>{
-        this._tarefasService.buscarUltimasTarefasRep(3).subscribe((resp:any)=>{
+        this._tarefasService.buscarUltimasTarefasRep(5).subscribe((resp:any)=>{
+          console.log(resp);
           this.totalTarefasSemana = resp.total
           this.tarefas = resp.ultimas.map(t=>{t.data = moment(t.data).format('DD/MM/YYYYY'); return t})
         })
