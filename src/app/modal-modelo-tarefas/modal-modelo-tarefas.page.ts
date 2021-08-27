@@ -42,7 +42,10 @@ export class ModalModeloTarefasPage implements OnInit {
           {text:'10', value:'10'},
           {text:'20', value:'20'},
           {text:'25', value:'25'},
+          {text:'40', value:'40'},
           {text:'50', value:'50'},
+          {text:'75', value:'75'},
+          {text:'100', value:'100'},
         ]
       }],
       buttons: [
