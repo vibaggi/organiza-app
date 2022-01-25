@@ -3,7 +3,6 @@ import { PontosService } from '../services/pontos.service';
 import { Router } from '@angular/router';
 import { TarefasService } from '../services/tarefas.service';
 import { AuthService } from '../services/auth.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { RepublicaService } from '../services/republica.service';
 import { ModalController } from '@ionic/angular';
 import { ModalConfiguracaoPage } from '../modal-configuracao/modal-configuracao.page';
@@ -19,8 +18,8 @@ export class HomePage {
     private _pontos:      PontosService, 
     private _tarefas:     TarefasService, 
     private _republica:   RepublicaService,
-    private router:       Router,
-    private authService:  AuthService,
+    public router:       Router,
+    public authService:  AuthService,
     private modalController: ModalController
   ) {}
 

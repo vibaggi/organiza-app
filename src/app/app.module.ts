@@ -21,24 +21,23 @@ import { environment } from '../environments/environment';
 import { ModalConfiguracaoPage } from './modal-configuracao/modal-configuracao.page';
 
 @NgModule({
-  declarations: [AppComponent, ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage, ModalSelectUsuarioPage, ModalConfiguracaoPage],
-  entryComponents: [ModalConcluirTarefaPage, ModalModeloTarefasPage, ModalRegistrarOcorrenciaPage, ModalSelectMoradorPage, ModalModeloOcorrenciaPage, ModalSelectUsuarioPage, ModalConfiguracaoPage],
-  imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-  ],
-  providers: [
-    StatusBar,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    },
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
+        HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ],
+    providers: [
+        StatusBar,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        },
+        SplashScreen,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

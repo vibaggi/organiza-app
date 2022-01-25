@@ -9,7 +9,7 @@ import { RepublicaService } from '../services/republica.service';
 })
 export class RankPage implements OnInit {
 
-  constructor(private router: Router, private _repService: RepublicaService) { }
+  constructor(public router: Router, private _repService: RepublicaService) { }
 
   republica = localStorage.getItem('organiza-republica')
   moradores = []
