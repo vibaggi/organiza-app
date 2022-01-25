@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ModalSelectUsuarioPage } from './modal-select-usuario.page';
 
@@ -7,7 +7,7 @@ describe('ModalSelectUsuarioPage', () => {
   let component: ModalSelectUsuarioPage;
   let fixture: ComponentFixture<ModalSelectUsuarioPage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ModalSelectUsuarioPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
