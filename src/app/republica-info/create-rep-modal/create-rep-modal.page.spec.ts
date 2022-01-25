@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CreateRepModalPage } from './create-rep-modal.page';
 
@@ -7,7 +7,7 @@ describe('CreateRepModalPage', () => {
   let component: CreateRepModalPage;
   let fixture: ComponentFixture<CreateRepModalPage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CreateRepModalPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],

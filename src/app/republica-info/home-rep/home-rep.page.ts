@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HomeRepPage implements OnInit {
 
   constructor() { }
-
+  republica = {
+    nome:''
+  }
   ngOnInit() {
+  }
+
+  doRefresh(event){
+    console.log(event);
   }
 
 }
